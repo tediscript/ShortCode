@@ -32,7 +32,7 @@ and http://redbeanphp.com/
 	S.openUri(String url)
 	S.openYoutube(String code)
 
-#REMOVED
+### REMOVED
 	S.pause()
 	S.resume()
 	S.stop()
