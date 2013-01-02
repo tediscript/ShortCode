@@ -4,6 +4,7 @@ ShortCode
 Helper library for Android Apps
 Mission: reduce the line of code
 inspired by https://github.com/pocorall/scaloid
+and http://redbeanphp.com/
 
 DRAFT:
 ShortCode.openYoutube(String code)
@@ -52,7 +53,7 @@ public class S {
 	public static Context ctx;
 	public static MediaPlayer mp;
 
-	public static void init(Context ctx) {
+	public static void setup(Context ctx) {
 		S.ctx = ctx;
 	}
 

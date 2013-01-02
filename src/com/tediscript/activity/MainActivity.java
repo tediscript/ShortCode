@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		S.init(MainActivity.this);
+		S.setup(MainActivity.this);
 		//S.debug("tagggggg", "haee....");
 		//S.longToast("lamaaaa....");
 		//S.share("bagiken");
