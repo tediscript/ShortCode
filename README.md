@@ -29,7 +29,7 @@ and http://redbeanphp.com/
 	S.getInt(String key, int defaultValue)
 	S.putBoolean(String key, bool value)
 	S.getBoolean(String key, bool defaultValue)
-	S.openUri(String url)
+	S.openUrl(String url)
 	S.openYoutube(String code)
 
 ### REMOVED
