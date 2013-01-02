@@ -12,7 +12,6 @@ public class S {
 
 	public static String PREFS_NAME = "com.tediscript.android.s.settings";
 	public static Context ctx;
-	public static MediaPlayer mp;
 
 	public static void setup(Context ctx) {
 		S.ctx = ctx;
@@ -63,32 +62,7 @@ public class S {
 	}
 
 	public static void play(int resource) {
-		mp = MediaPlayer.create(S.ctx, resource);
-		mp.start();
-	}
-
-	public static void pause() {
-		if (mp != null) {
-			if (mp.isPlaying()) {
-				mp.pause();
-			}
-		}
-	}
-
-	public static void resume() {
-		if (mp != null) {
-			if (mp.isPlaying()) {
-				mp.pause();
-			}
-		}
-	}
-
-	public static void stop() {
-		if (mp != null) {
-			if (mp.isPlaying()) {
-				mp.stop();
-			}
-		}
+		MediaPlayer.create(S.ctx, resource).start();
 	}
 
 	public static void putString(String key, String value) {

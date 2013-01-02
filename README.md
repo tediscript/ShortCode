@@ -23,9 +23,6 @@ and http://redbeanphp.com/
 	S.share(String text)
 	S.share(String tag, String text)
 	S.play(int resource)
-	S.pause()
-	S.resume()
-	S.stop()
 	S.putString(String key, String value)
 	S.getString(String key, String defaultValue)
 	S.putInt(String key, int value)
@@ -34,4 +31,9 @@ and http://redbeanphp.com/
 	S.getBoolean(String key, bool defaultValue)
 	S.openUri(String url)
 	S.openYoutube(String code)
+
+#REMOVED
+	S.pause()
+	S.resume()
+	S.stop()
 
