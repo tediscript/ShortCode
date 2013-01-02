@@ -1,7 +1,7 @@
 ShortCode
 =========
 
-# Helper library for Android to reduce a line of code
+# Android library to reduce a line of code
 inspired by https://github.com/pocorall/scaloid
 and http://redbeanphp.com/
 
