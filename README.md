@@ -1,7 +1,7 @@
 ShortCode
 =========
 
-# Android library to reduce a line of code
+Android library to reduce a line of code<br/>
 inspired by https://github.com/pocorall/scaloid
 and http://redbeanphp.com/
 
@@ -31,6 +31,8 @@ and http://redbeanphp.com/
 	S.getBoolean(String key, bool defaultValue)
 	S.openUrl(String url)
 	S.openYoutube(String code)
+	S.startActivity(Class <?> cls)
+	S.startActivity(Class <?> cls, String data)
 
 ### REMOVED
 	S.pause()

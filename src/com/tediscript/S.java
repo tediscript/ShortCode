@@ -113,4 +113,14 @@ public class S {
 		S.ctx.startActivity(i);
 	}
 
+	public static void startActivity(Class<?> cls) {
+		S.startActivity(cls, "");
+	}
+
+	public static void startActivity(Class<?> cls, String data) {
+		Intent intent = new Intent(S.ctx, cls);
+		intent.putExtra("data", data);
+		S.ctx.startActivity(intent);
+	}
+
 }
