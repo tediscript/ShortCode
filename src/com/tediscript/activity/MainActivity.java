@@ -19,7 +19,9 @@ public class MainActivity extends Activity {
 		//S.share("bagiken");
 		//S.play(R.raw.proklamasi);
 		//S.openUrl("http://google.com");
-		S.openYoutube("72ia9XzySro");
+		//S.openYoutube("72ia9XzySro");
+		//S.loading(R.string.app_name);
+		//S.dismiss();
 		
 	}
 

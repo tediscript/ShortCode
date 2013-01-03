@@ -1,5 +1,6 @@
 package com.tediscript;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,11 +11,30 @@ import android.widget.Toast;
 
 public class S {
 
-	public static String PREFS_NAME = "com.tediscript.android.s.settings";
-	public static Context ctx;
+	private static Context ctx;
+	private static String PREFS_NAME = "com.tediscript.android.s.settings";
+	private static ProgressDialog loading;
 
 	public static void setup(Context ctx) {
 		S.ctx = ctx;
+	}
+
+	public static void loading(int resId) {
+		S.loading(S.ctx.getString(resId));
+	}
+
+	public static void loading(String msg) {
+		loading = new ProgressDialog(S.ctx);
+		loading.setMessage(msg);
+		loading.show();
+	}
+
+	public static void dismiss() {
+		try {
+			loading.dismiss();
+		} catch (Exception e) {
+
+		}
 	}
 
 	public static void log(String msg) {
@@ -41,8 +61,16 @@ public class S {
 		Log.e(tag, msg);
 	}
 
+	public static void toast(int resId) {
+		S.toast(S.ctx.getString(resId));
+	}
+
 	public static void toast(String text) {
 		Toast.makeText(S.ctx, text, Toast.LENGTH_SHORT).show();
+	}
+
+	public static void longToast(int resId) {
+		S.longToast(S.ctx.getString(resId));
 	}
 
 	public static void longToast(String text) {
@@ -61,8 +89,8 @@ public class S {
 		ctx.startActivity(Intent.createChooser(sendIntent, title));
 	}
 
-	public static void play(int resource) {
-		MediaPlayer.create(S.ctx, resource).start();
+	public static void play(int resId) {
+		MediaPlayer.create(S.ctx, resId).start();
 	}
 
 	public static void putString(String key, String value) {
@@ -72,9 +100,9 @@ public class S {
 		editor.commit();
 	}
 
-	public static String getString(String key, String defaultValue) {
+	public static String getString(String key, String defValue) {
 		SharedPreferences settings = S.ctx.getSharedPreferences(PREFS_NAME, 0);
-		return settings.getString(key, defaultValue);
+		return settings.getString(key, defValue);
 	}
 
 	public static void putInt(String key, int value) {
@@ -84,9 +112,9 @@ public class S {
 		editor.commit();
 	}
 
-	public static int getInt(String key, int defaultValue) {
+	public static int getInt(String key, int defValue) {
 		SharedPreferences settings = S.ctx.getSharedPreferences(PREFS_NAME, 0);
-		return settings.getInt(key, defaultValue);
+		return settings.getInt(key, defValue);
 	}
 
 	public static void putBoolean(String key, boolean value) {
@@ -96,9 +124,9 @@ public class S {
 		editor.commit();
 	}
 
-	public static boolean getBoolean(String key, boolean defaultValue) {
+	public static boolean getBoolean(String key, boolean defValue) {
 		SharedPreferences settings = S.ctx.getSharedPreferences(PREFS_NAME, 0);
-		return settings.getBoolean(key, defaultValue);
+		return settings.getBoolean(key, defValue);
 	}
 
 	public static void openUrl(String url) {
