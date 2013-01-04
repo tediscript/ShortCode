@@ -7,10 +7,17 @@ and http://redbeanphp.com/
 
 ### DRAFT:
 	S.spinnerDialog(String title, String msg)
-	S.vibrate(int miliseconds)
 	S.alert(String title, String msg)
 	S.get(String url, Shortuct.callback)
 	S.post(String url, String data, S.callback)
+	S.dial(String phoneNumber()
+	S.getIMEI()
+	S.getPhoneNetworkType()
+	S.speech(String sentence)
+	S.capture(String pathToSaveImage)
+	S.formatPlurals(String number)
+	S.formatNumbers()
+	S.shakeView()
 
 ### DONE:
 	S.toast(String msg)
@@ -36,6 +43,7 @@ and http://redbeanphp.com/
 	S.getDeviceId()
 	S.vibrate(long miliseconds)
 	S.vibrate(long [] intervals)
+
 
 ### REMOVED
 	S.pause()

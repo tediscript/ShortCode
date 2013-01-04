@@ -194,4 +194,10 @@ public class S {
 		return "";
 	}
 
+	public static void dial(String phoneNumber) {
+		Intent intent = new Intent("android.intent.action.DIAL",
+				Uri.parse("tel:" + phoneNumber));
+		S.ctx.startActivity(intent);
+	}
+
 }
