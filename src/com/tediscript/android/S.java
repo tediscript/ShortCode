@@ -1,4 +1,4 @@
-package com.tediscript;
+package com.tediscript.android;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.provider.Settings.Secure;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -149,6 +150,10 @@ public class S {
 		Intent intent = new Intent(S.ctx, cls);
 		intent.putExtra("data", data);
 		S.ctx.startActivity(intent);
+	}
+
+	public static String getDeviceId() {
+		return Secure.getString(S.ctx.getContentResolver(), Secure.ANDROID_ID);
 	}
 
 }

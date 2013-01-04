@@ -33,6 +33,7 @@ and http://redbeanphp.com/
 	S.openYoutube(String code)
 	S.startActivity(Class <?> cls)
 	S.startActivity(Class <?> cls, String data)
+	S.getDeviceId()
 
 ### REMOVED
 	S.pause()

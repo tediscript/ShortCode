@@ -1,6 +1,6 @@
 package com.tediscript.activity;
 
-import com.tediscript.S;
+import com.tediscript.android.S;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
 		//S.play(R.raw.proklamasi);
 		//S.openUrl("http://google.com");
 		//S.openYoutube("72ia9XzySro");
-		//S.loading(R.string.app_name);
+		S.loading(S.getDeviceId());
 		//S.dismiss();
 		
 	}
