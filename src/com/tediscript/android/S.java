@@ -1,5 +1,8 @@
 package com.tediscript.android;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -159,7 +162,7 @@ public class S {
 	}
 
 	public static void vibrate(long miliseconds) {
-		S.vibrate(new long[] { miliseconds, miliseconds });
+		S.vibrate(new long[] { 1, miliseconds });
 	}
 
 	public static void vibrate(long[] intervals) {
@@ -169,6 +172,26 @@ public class S {
 		Notification notification = new Notification();
 		notification.vibrate = intervals;
 		notificationManager.notify(0, notification);
+	}
+
+	public static String md5(String s) {
+		try {
+			// Create MD5 Hash
+			MessageDigest digest = java.security.MessageDigest
+					.getInstance("MD5");
+			digest.update(s.getBytes());
+			byte messageDigest[] = digest.digest();
+			// Create Hex String
+			StringBuffer hexString = new StringBuffer();
+			for (int i = 0; i < messageDigest.length; i++) {
+				hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+			}
+			return hexString.toString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+
+		return "";
 	}
 
 }

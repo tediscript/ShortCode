@@ -22,9 +22,9 @@ public class MainActivity extends Activity {
 		//S.openYoutube("72ia9XzySro");
 		//S.loading(S.getDeviceId());
 		//S.dismiss();
-		S.vibrate(1000);
+		//S.vibrate(1000);
 		//S.vibrate(new long[]{1000, 1000});
-		
+		S.loading(S.md5("hahaha"));
 	}
 
 	@Override
