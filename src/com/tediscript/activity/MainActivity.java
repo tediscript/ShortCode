@@ -20,8 +20,10 @@ public class MainActivity extends Activity {
 		//S.play(R.raw.proklamasi);
 		//S.openUrl("http://google.com");
 		//S.openYoutube("72ia9XzySro");
-		S.loading(S.getDeviceId());
+		//S.loading(S.getDeviceId());
 		//S.dismiss();
+		S.vibrate(1000);
+		//S.vibrate(new long[]{1000, 1000});
 		
 	}
 

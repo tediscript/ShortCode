@@ -1,5 +1,7 @@
 package com.tediscript.android;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -154,6 +156,19 @@ public class S {
 
 	public static String getDeviceId() {
 		return Secure.getString(S.ctx.getContentResolver(), Secure.ANDROID_ID);
+	}
+
+	public static void vibrate(long miliseconds) {
+		S.vibrate(new long[] { miliseconds, miliseconds });
+	}
+
+	public static void vibrate(long[] intervals) {
+		@SuppressWarnings("static-access")
+		NotificationManager notificationManager = (NotificationManager) S.ctx
+				.getSystemService(S.ctx.NOTIFICATION_SERVICE);
+		Notification notification = new Notification();
+		notification.vibrate = intervals;
+		notificationManager.notify(0, notification);
 	}
 
 }

@@ -34,6 +34,8 @@ and http://redbeanphp.com/
 	S.startActivity(Class <?> cls)
 	S.startActivity(Class <?> cls, String data)
 	S.getDeviceId()
+	S.vibrate(long miliseconds)
+	S.vibrate(long [] intervals)
 
 ### REMOVED
 	S.pause()
