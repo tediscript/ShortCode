@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +13,8 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.provider.Settings.Secure;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -166,9 +169,8 @@ public class S {
 	}
 
 	public static void vibrate(long[] intervals) {
-		@SuppressWarnings("static-access")
 		NotificationManager notificationManager = (NotificationManager) S.ctx
-				.getSystemService(S.ctx.NOTIFICATION_SERVICE);
+				.getSystemService(Context.NOTIFICATION_SERVICE);
 		Notification notification = new Notification();
 		notification.vibrate = intervals;
 		notificationManager.notify(0, notification);
@@ -198,6 +200,24 @@ public class S {
 		Intent intent = new Intent("android.intent.action.DIAL",
 				Uri.parse("tel:" + phoneNumber));
 		S.ctx.startActivity(intent);
+	}
+
+	public static void notification(int notifId, int resIconId, String title,
+			String text, Class<?> cls) {
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+				S.ctx).setSmallIcon(resIconId)
+				.setContentTitle(title)
+				.setContentText(text);
+		Intent resultIntent = new Intent(S.ctx, cls);
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(S.ctx);
+		stackBuilder.addParentStack(cls);
+		stackBuilder.addNextIntent(resultIntent);
+		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
+				PendingIntent.FLAG_UPDATE_CURRENT);
+		mBuilder.setContentIntent(resultPendingIntent);
+		NotificationManager mNotificationManager = (NotificationManager) S.ctx
+				.getSystemService(Context.NOTIFICATION_SERVICE);
+		mNotificationManager.notify(notifId, mBuilder.build());
 	}
 
 }

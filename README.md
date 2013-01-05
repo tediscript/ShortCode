@@ -13,10 +13,6 @@ and http://redbeanphp.com/
 	S.dial(String phoneNumber()
 	S.getIMEI()
 	S.getPhoneNetworkType()
-	S.speech(String sentence)
-	S.capture(String pathToSaveImage)
-	S.formatPlurals(String number)
-	S.formatNumbers()
 	S.shakeView()
 
 ### DONE:
@@ -43,6 +39,7 @@ and http://redbeanphp.com/
 	S.getDeviceId()
 	S.vibrate(long miliseconds)
 	S.vibrate(long [] intervals)
+	S.notification(int notifId, int resIconId, String title, String text, Class <?> cls)
 
 
 ### REMOVED
