@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 		// S.vibrate(new long[]{1000, 1000});
 		// S.loading(S.md5("hahaha"));
 		// S.dial("08996808436");
-		S.notification(0, R.drawable.ic_launcher, "Judulnya", "Isinya",
+		S.notification(R.drawable.ic_launcher, "Judulnya", "Isinya",
 				MainActivity.class);
 	}
 

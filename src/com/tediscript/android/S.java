@@ -138,6 +138,18 @@ public class S {
 		return settings.getBoolean(key, defValue);
 	}
 
+	public static void putFloat(String key, float value) {
+		SharedPreferences settings = S.ctx.getSharedPreferences(PREFS_NAME, 0);
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putFloat(key, value);
+		editor.commit();
+	}
+
+	public static float getFloat(String key, float defValue) {
+		SharedPreferences settings = S.ctx.getSharedPreferences(PREFS_NAME, 0);
+		return settings.getFloat(key, defValue);
+	}
+
 	public static void openUrl(String url) {
 		Intent i = new Intent(Intent.ACTION_VIEW);
 		i.setData(Uri.parse(url));
@@ -155,6 +167,24 @@ public class S {
 	}
 
 	public static void startActivity(Class<?> cls, String data) {
+		Intent intent = new Intent(S.ctx, cls);
+		intent.putExtra("data", data);
+		S.ctx.startActivity(intent);
+	}
+
+	public static void startActivity(Class<?> cls, int data) {
+		Intent intent = new Intent(S.ctx, cls);
+		intent.putExtra("data", data);
+		S.ctx.startActivity(intent);
+	}
+
+	public static void startActivity(Class<?> cls, boolean data) {
+		Intent intent = new Intent(S.ctx, cls);
+		intent.putExtra("data", data);
+		S.ctx.startActivity(intent);
+	}
+
+	public static void startActivity(Class<?> cls, float data) {
 		Intent intent = new Intent(S.ctx, cls);
 		intent.putExtra("data", data);
 		S.ctx.startActivity(intent);
@@ -202,11 +232,15 @@ public class S {
 		S.ctx.startActivity(intent);
 	}
 
+	public static void notification(int resIconId, String title, String text,
+			Class<?> cls) {
+		S.notification(0, resIconId, title, text, cls);
+	}
+
 	public static void notification(int notifId, int resIconId, String title,
 			String text, Class<?> cls) {
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-				S.ctx).setSmallIcon(resIconId)
-				.setContentTitle(title)
+				S.ctx).setSmallIcon(resIconId).setContentTitle(title)
 				.setContentText(text);
 		Intent resultIntent = new Intent(S.ctx, cls);
 		TaskStackBuilder stackBuilder = TaskStackBuilder.create(S.ctx);
